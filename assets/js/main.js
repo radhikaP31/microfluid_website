@@ -1,9 +1,3 @@
-/**
-* Template Name: Company - v2.2.1
-* Template URL: https://bootstrapmade.com/company-free-html-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 !(function($) {
   "use strict";
 
@@ -166,5 +160,9 @@
   $(window).on('load', function() {
     aos_init();
   });
+
+  //set carousel Image top
+  var height =  $('.header').outerHeight();
+  $('.carousel-item').css('top',height+'px');
 
 })(jQuery);
