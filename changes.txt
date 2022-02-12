@@ -1,0 +1,21 @@
+MAIN CHANGES
+
+1. All product and site data should be dynamic, we can change it any time
+2. Meta details: title, description, keywords
+3. description for all products(refer other website)
+4. remove extension from all pages
+5. Video on home page
+
+icon refer
+https://icon-sets.iconify.design -- 
+
+meta tags information
+https://ahrefs.com/blog/seo-meta-tags/ - 
+
+htaccess configuration
+https://help.dreamhost.com/hc/en-us/articles/215747748-How-can-I-redirect-and-rewrite-my-URLs-with-an-htaccess-file-
+
+
+DEPLOYMENT CHANGES:
+update base_url in common_query class
+update .htaaccess file

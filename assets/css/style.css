@@ -535,12 +535,12 @@ section {
   background-color: #f7f7f7 !important;
 }
 
-.section-title {
+.section-title,.client_section_title {
   text-align: center;
 /*  padding-bottom: 30px;
 */}
 
-.section-title h2 {
+.section-title h2,.client_section_title h2 {
   font-size: 32px;
 /*  font-weight: bold;
   text-transform: uppercase;*/
@@ -566,6 +566,17 @@ section {
 
 .section-title p {
   margin-bottom: 0;
+}
+
+.client_section_title h2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 25%;
+  height: 3px;
+  background: var(--secondary_color) !important;
+  bottom: 15px;
+  left: calc(39% - 15px);
 }
 
 /*--------------------------------------------------------------
@@ -2472,8 +2483,8 @@ section {
 .field-icon{
     position: absolute;
     left: 0px;
-    width: 21%;
-    height: 67px;
+    width: 16%;
+    height: 46px;
     font-size: 24px;
     color: white;
     background: var(--primary_color);
@@ -2512,7 +2523,7 @@ section {
       padding-left: 30px;
       padding-right: 30px;
       position: absolute;
-      top: 100%;
+      top: 109%;
       -webkit-transform: translateY(-72px);
       -ms-transform: translateY(-72px);
       transform: translateY(-72px);
@@ -2521,13 +2532,16 @@ section {
   }
 
   .field-has-icon .field-title {
-      padding-left: 63px;
+      padding-left: 30px;
       transition: .4s padding;
   }
   .field-title {
       height: 67px;
   }
 
+}
+.field:hover .field-title{
+  padding-top: 5% !important;
 }
 .field-content {
     background-color: #fff;
@@ -2544,7 +2558,7 @@ section {
     font-family: Roboto;
     margin-bottom: 0;
     margin-top: 0;
-    padding-top: 20px;
+    padding-top: 6px;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -2560,7 +2574,7 @@ section {
   text-align: center;
 }
 .text-rigth{
-  text-align: rigth;
+  text-align: right;
 }
 .text-left{
   text-align: left;
@@ -2589,12 +2603,12 @@ section {
 .field:hover .field-icon{
     position: absolute;
     left: 15px;
-    width: 21%;
-    height: 34px;
-    font-size: 24px;
+    width: 16%;
+    height: 46px;
+    font-size: 13px;
     background: white;
     color: var(--primary_color);
-    top: 16px;
+    top: 8px;
     border: none !important;
 }
 .about-section-title h2::after {
@@ -2619,4 +2633,8 @@ section {
 }
 .min-height300{
   min-height: 300px;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 }
