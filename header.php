@@ -64,4 +64,35 @@
     </div>
 </header>
 
+<!-- Creating object of classes -->
   <?php $query_obj = new Common_query(); ?>
+  <?php $common = new Class_common(); ?>
+
+
+<div class="header_space"></div>
+
+<?php if(basename($_SERVER['PHP_SELF']) != 'index.php'){ ?>
+
+
+<!-- ======= Breadcrumbs ======= -->
+  <section id="ourDescription" class="ourDescription">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2><?php echo $common->getLanguage('breadcrumb_desc'); ?></h2>
+      </div>
+    </div>  
+  </section>
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>
+          <?php echo $common->breadcrumbs(' &#124; ','Home'); ?>
+        </h2>
+      </div>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+<?php } ?>
+

@@ -161,10 +161,6 @@
     aos_init();
   });
 
-  //set carousel Image top
-  var height =  $('.header').outerHeight();
-  $('.carousel-item').css('top',height+'px');
-
 
 $('.client-container').slick({
   dots: true,
@@ -202,6 +198,10 @@ $('.client-container').slick({
   ]
 });
 
+//Set height for div
+var height =  $('.fixed-top').outerHeight();
+
+$('.header_space').css('height',height+'px');
 
 
 })(jQuery);

@@ -35,7 +35,8 @@
 
 
 
-  <?php include 'common_query.php'; //common class ?>
+  <?php include 'common_query.php'; //common query class ?>
+  <?php include 'class_common.php'; //common class ?>
 
   <script type="text/javascript">
     <?php include 'assets/js/manual.js'; //load js file?>

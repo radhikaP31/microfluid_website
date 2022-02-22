@@ -24,7 +24,7 @@ a {
 }
 
 a:hover {
-  color: #2ae149;
+  color: var(--primary_color);
   text-decoration: none;
 }
 
@@ -584,9 +584,8 @@ section {
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 15px 0;
-  background: #1bbd36;
+  background: var(--secondary_color);
   min-height: 40px;
-  margin-top: 72px;
 }
 
 .breadcrumbs h2 {

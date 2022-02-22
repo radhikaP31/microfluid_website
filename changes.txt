@@ -5,6 +5,13 @@ MAIN CHANGES
 3. description for all products(refer other website)
 4. remove extension from all pages
 5. Video on home page
+6. Display product category icon in bottom of product - https://www.kirloskarpumps.com/products/market/food-&-beverages/
+
+product page design
+https://www.kirloskarpumps.com/product/AT/
+https://www.cummins.com/en/in/company/cummins-india
+https://www.cummins.com/engines/f38-stage-v
+
 
 icon refer
 https://icon-sets.iconify.design -- 
@@ -19,3 +26,4 @@ https://help.dreamhost.com/hc/en-us/articles/215747748-How-can-I-redirect-and-re
 DEPLOYMENT CHANGES:
 update base_url in common_query class
 update .htaaccess file
+

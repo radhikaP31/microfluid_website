@@ -28,12 +28,12 @@ Class Common_query{
 	    return $this->db->query("SELECT * FROM web_clients ORDER BY sequence ASC");
 	}
 
-	/**Function to add Product in Product table
-	* Upload image to images folder
-	* @param array type $data
-	* @return boolean  
+	/**Function to get All About us information from web_about_info table
+	* @return array  
 	**/
-
+	function getAboutUsInformation() {
+	    return $this->db->query("SELECT * FROM web_about_info ");
+	}
 }
 
 ?>
