@@ -29,7 +29,7 @@
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg);">
+        <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg);height: 500px">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
               <div class="text-left"><a href="" class="btn btn-primary primary-text" style="border-radius: 30px;padding: 7px 20px 7px 20px;"><b>Read More</b></a></div>
@@ -287,7 +287,7 @@
                 <div class="wrapper" style="padding:0px 20px">
                   <div class="service_item ">
                     <div class="service_image ">
-                      <img src="<?php echo BASE_URL .$client['image'];?>" class="img-responsive" alt="" / style="height: 100px;width: auto;">
+                      <img src="<?php echo BASE_URL .$client['image'];?>" class="img-responsive" alt="" / style="height: 100px;width: auto;margin: auto;">
                     </div>
                     <div class="" style="padding:0px 15%">
                       <div class="resource_title secondary-bg">

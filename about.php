@@ -39,6 +39,9 @@
           <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
             <?php 
             $aboutInfo = $query_obj->getAboutUsInformation(); ?>
+            <div id="">
+              
+            </div>
             <!-- design all section and give id of upper <li> nav tabs -->
           </div>
         </div>
