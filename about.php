@@ -40,7 +40,7 @@
             <?php 
             $aboutInfo = $query_obj->getAboutUsInformation(); ?>
             <div id="">
-              
+              <!-- write tab section code here -->
             </div>
             <!-- design all section and give id of upper <li> nav tabs -->
           </div>
