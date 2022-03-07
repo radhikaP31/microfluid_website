@@ -75,24 +75,18 @@
 
 
 <!-- ======= Breadcrumbs ======= -->
-  <section id="ourDescription" class="ourDescription">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center">
-        <h2><?php echo $common->getLanguage('breadcrumb_desc'); ?></h2>
-      </div>
-    </div>  
-  </section>
-  <section id="breadcrumbs" class="breadcrumbs">
-    <div class="container">
-
-      <div class="d-flex justify-content-between align-items-center">
-        <h2>
-          <?php echo $common->breadcrumbs(' &#124; ','Home'); ?>
-        </h2>
-      </div>
-
+  <section id="breadcrumbs" class="breadcrumbs" style="padding: 0px;height: 9rem;background-image: url(assets/img/breadcrumb/breadcrumb_img.png);background-size: cover;">
+    <div style="position: absolute;z-index: 0;opacity: 0.7;width: 100%;height: 9rem;background: white;"></div>
+    <div class="col-md-12 d-flex justify-content-between align-items-center" style="bottom: -4%;"> 
+      <h3 class="text-left primary-text breadcrumb-text" ><?php echo $common->getLanguage('breadcrumb_desc'); ?></h3>       
     </div>
-  </section><!-- End Breadcrumbs -->
+    <div class="col-md-12 d-flex justify-content-between align-items-center" style="bottom: -9%;background: rgb(113 113 113 / 54%);letter-spacing: 1.3px;"> 
+      <h2  class="primary-text" style="margin: 9px 4rem;">
+        <?php echo $common->breadcrumbs(' &#124; ','Home'); ?>
+      </h2>         
+    </div>
+  </section>
+<!-- End Breadcrumbs -->
 
 <?php } ?>
 
