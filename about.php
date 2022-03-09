@@ -22,33 +22,45 @@
   <!-- Header end -->
 
   <main id="main">
-    <hr style="margin: 2% 10%;" />
+    <hr style="margin: 2% 10%;background: #b5b5b5;" />
     <!-- ======= About Us Section ======= -->
-    <section id="about-us" class="about-us">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row content">
-          <div class="col-lg-6" data-aos="fade-right">
-            <ul class="nav nav-tabs">
-              <li class="active"><a data-toggle="tab" href="#corpo_profile">Corporate Profile</a></li>
-              <li><a data-toggle="tab" href="#management_values">Management Values</a></li>
-              <li><a data-toggle="tab" href="#visin_mission">Vision & Mission</a></li>
-              <li><a data-toggle="tab" href="#testimonials">Testimonials</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
-            <?php 
-            $aboutInfo = $query_obj->getAboutUsInformation(); ?>
-            <div id="">
-              <!-- write tab section code here -->
-            </div>
-            <!-- design all section and give id of upper <li> nav tabs -->
-          </div>
+    <section id="about-us container" class="about-us">
+      <div class="row col-md-12">
+        <div class="col-md-3">
+          <nav class="navbar navbar-default block-filter-section">
+            <ul class="about-us-nav nav navbar-nav">
+              <?php $about_tab = $query_obj->getAboutUsInformation(); 
+                  if ($about_tab->num_rows > 0) { 
+                    while($about = $about_tab->fetch_assoc()) { ?>
+                      <li class="block-filter" data-block_type="<?php echo $about['tab_name'] ?>">
+                        <a href="javascript:void(0)" class="text-black"><?php echo $about['name'] ?></a>
+                      </li>
+                   <?php } ?>
+                  <?php } ?>         
+            </ul>  
+          </nav>
         </div>
-
+        <div class="col-md-9 container about-us-blocks ">
+          <?php $about_data = $query_obj->getAboutUsInformation();
+            if ($about_data->num_rows > 0) { 
+              while($about_details = $about_data->fetch_assoc()) { ?>
+                <div class="block-type <?php echo 'block-type-'.$about_details['tab_name']; ?>" data-block_type="<?php echo $about_details['tab_name']; ?>" style="display: none;">
+                  
+               
+                <div class="col-md-6">
+                  <img src="<?php echo $about_details['image']; ?>" style="height: auto;width: 350px;">
+                <br>
+                </div>
+                <div class="col-md-6">
+                  <?php echo ' text'.$about_details['name']; ?>
+                </div> 
+                 </div>
+              <?php } ?>
+            <?php } ?>
+        </div>
+        
       </div>
     </section><!-- End About Us Section -->
-
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -56,5 +68,4 @@
   <!-- End Footer -->
 
 </body>
-
 </html>

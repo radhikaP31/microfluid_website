@@ -34,6 +34,7 @@ Class Common_query{
 	function getAboutUsInformation() {
 	    return $this->db->query("SELECT * FROM web_about_info ");
 	}
+
 }
 
 ?>

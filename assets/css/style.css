@@ -942,6 +942,24 @@ section {
   margin-bottom: 0;
 }
 
+.about-us{
+  padding-top: 0px;
+}
+
+.about-us-nav{
+  border: 2px solid var(--primary_color); 
+}
+
+.about-us-nav > .active{
+  background: var(--primary_color);
+}
+.about-us-nav li{
+  padding: 5px 10px 5px 10px;;
+}
+
+.about-us-nav >.active a{
+    color: white !important;
+}
 /*--------------------------------------------------------------
 # Our Team
 --------------------------------------------------------------*/
