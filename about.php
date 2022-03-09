@@ -47,7 +47,7 @@
                 <div class="block-type <?php echo 'block-type-'.$about_details['tab_name']; ?>" data-block_type="<?php echo $about_details['tab_name']; ?>" style="display: none;">
                   
                
-                <div class="col-md-6">
+                <div class="col-md-6"> 
                   <img src="<?php echo $about_details['image']; ?>" style="height: auto;width: 350px;">
                 <br>
                 </div>
