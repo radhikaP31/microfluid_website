@@ -32,6 +32,9 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto", sans-serif;
 }
 
+.letter-spacing{
+  letter-spacing: 0.6px; 
+}
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -954,11 +957,15 @@ section {
   background: var(--primary_color);
 }
 .about-us-nav li{
-  padding: 5px 10px 5px 10px;;
+  padding: 5px 5px 5px 10px;;
 }
 
 .about-us-nav >.active a{
-    color: white !important;
+  color: white !important;
+}
+
+.block-filter-section{
+  padding: unset;
 }
 /*--------------------------------------------------------------
 # Our Team

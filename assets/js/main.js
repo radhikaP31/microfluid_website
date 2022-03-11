@@ -203,7 +203,9 @@ var height =  $('.fixed-top').outerHeight();
 $('.header_space').css('height',height+'px');
 
 //about us page js start
-$( ".about-us-blocks div:first-child" ).css( "display", "block" );
+//$( ".about-us-blocks div:first-child" ).css( "display", "inline" );
+$( ".about-us-blocks div:first-child" ).removeAttr("style");
+
 $(".about-us-nav li:first").addClass("active");
 //$( ".about-us-blocks" ).first().css( "background-color", "red" );
 jQuery('.block-filter').click(function(){

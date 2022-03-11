@@ -26,7 +26,7 @@
     <!-- ======= About Us Section ======= -->
     <section id="about-us container" class="about-us">
       <div class="row col-md-12">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <nav class="navbar navbar-default block-filter-section">
             <ul class="about-us-nav nav navbar-nav">
               <?php $about_tab = $query_obj->getAboutUsInformation(); 
@@ -40,21 +40,23 @@
             </ul>  
           </nav>
         </div>
-        <div class="col-md-9 container about-us-blocks ">
+        <div class="col-md-9 container about-us-blocks " style="margin: unset;">
           <?php $about_data = $query_obj->getAboutUsInformation();
             if ($about_data->num_rows > 0) { 
               while($about_details = $about_data->fetch_assoc()) { ?>
                 <div class="block-type <?php echo 'block-type-'.$about_details['tab_name']; ?>" data-block_type="<?php echo $about_details['tab_name']; ?>" style="display: none;">
                   
                
-                <div class="col-md-6"> 
-                  <img src="<?php echo $about_details['image']; ?>" style="height: auto;width: 350px;">
-                <br>
+                  <div class="row col-md-12"> 
+                  <div class="col-md-6"> 
+                    <img src="<?php echo $about_details['image']; ?>" style="height: auto;width: 350px;">
+                  <br>
+                  </div>
+                  <div class="col-md-6">
+                    <p class="letter-spacing"><?php echo $about_details['description']; ?></p>
+                  </div> 
+                  </div> 
                 </div>
-                <div class="col-md-6">
-                  <?php echo ' text'.$about_details['name']; ?>
-                </div> 
-                 </div>
               <?php } ?>
             <?php } ?>
         </div>
