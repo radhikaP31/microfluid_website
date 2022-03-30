@@ -6,6 +6,11 @@ MAIN CHANGES
 4. remove extension from all pages
 5. Video on home page
 6. Display product category icon in bottom of product - https://www.kirloskarpumps.com/products/market/food-&-beverages/
+7. about us page like - pressurejet
+application page - https://www.bertoli-homogenizers.com/applications/
+	single application - bartoli
+product page - inox, spxflow
+
 
 product page design
 https://www.kirloskarpumps.com/product/AT/

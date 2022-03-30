@@ -5,7 +5,7 @@ class Database {
     private $connection;
 
     private function __construct() {
-        $this->connection = new MySQLi("localhost","root","","test");
+        $this->connection = new MySQLi("localhost","root","","microfluid");
     }
 
     function __destruct() {

@@ -31,3 +31,15 @@ note changes - changes.txt
 2. include class in head.php
 3. create object of this class in header.php
 4. use object anywhere 
+
+
+Software crud for website
+1. Manage Clients - web_clients
+2. Manage language phrase - web_language
+3. Manage About us information - web_about_info
+
+
+
+CHANGES PENDING:
+responsive changes of banner
+dynamic of field application section , design changes

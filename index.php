@@ -18,22 +18,23 @@
 <body>
 
   <!-- Header starts -->
-  <?php include 'header.php'; ?>
+  <?php //include 'header.php'; ?>
+  <?php include 'header_scroll.php'; ?>
   <!-- Header end -->
 
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero">
+  <section id="hero" class="hero head_content">
     <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
 
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg);height: 500px">
+        <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg);">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
-              <div class="text-left"><a href="" class="btn btn-primary primary-text" style="border-radius: 30px;padding: 7px 20px 7px 20px;"><b>Read More</b></a></div>
-            </div>
+              <!-- <div class="text-left"><a href="" class="btn btn-primary primary-text" style="border-radius: 30px;padding: 7px 20px 7px 20px;"><b>Read More</b></a></div>
+ -->            </div>
           </div>
         </div>
 
@@ -81,168 +82,72 @@
 
     <!-- ======= What we offer/services Section ======= -->
     <section id="what-we-offer services" class="what-we-offer services section-bg">
-      <div class="container" data-aos="fade-up">
+      <div class="container">
 
         <div class="section-title">
-          <h2 class="primary-text">What We Offer</strong></h2>
+          <h2 class="primary-text header-font-size">What We Offer</strong></h2>
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6 align-items-stretch min-height310" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon">
-                <img alt="High Pressure Homogenizers" src="assets/img/application/homogenizers.jpeg">
+          <?php $whatWeOfferData = $common->getIndependentDataByTypeCode('WTOFR'); 
+          if ($whatWeOfferData->num_rows > 0) { 
+            while($offer = $whatWeOfferData->fetch_assoc()) { ?>
+              <div class="col-lg-3 col-md-6 align-items-stretch min-height310  " >
+                <div class="icon-box rounded shadow mb-5">
+                  <div class="icon">
+                    <img alt="<?= $offer['mstr_nm']; ?>" src="<?= $offer['mstr_img']; ?>">
+                  </div>
+                  <h4><a href="<?= $offer['mstr_link']; ?>" class="service_name primary-text"><?= $offer['mstr_nm']; ?>&nbsp;&nbsp;<i class="fa fa-arrow-right" style="font-size: 13px;"></i></a></h4>
+                </div>
               </div>
-              <h4><a href="" class="primary-text">High Pressure Homogenizers</a></h4>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon">
-                <img alt="Pumps" src="assets/img/application/pump.jpeg">
-              </div>
-              <h4><a href="" class="primary-text">Pumps</a></h4>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon">
-                <img alt="Homogenizers Spare Parts" src="assets/img/application/spare-parts.jpeg">
-              </div>
-              <h4><a href="" class="primary-text">Homogenizers Spare Parts</a></h4>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon">
-                <img alt="Sanitary Filters & Strainers" src="assets/img/application/filters.jpeg">
-              </div>
-              <h4><a href="" class="primary-text">Sanitary Filters & Strainers</a></h4>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon">
-                <img alt="Hygenic Fittings" src="assets/img/application/fitting.jpeg" style="">
-              </div>
-              <h4><a href="" class="primary-text">Hygenic Fittings</a></h4>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box more-product">
-              <h4 class="primary-text" style="margin-top: 30%;">For More Microfluid's Product Range</h4>
-              <a href="#" class="primary-text">Find Out More</a>
-            </div>
-          </div>
-
+            <?php } ?>
+          <?php } ?>  
+          <br>   
         </div>
       </div>
+            <div class="text-center">
+        <a href="#" class="btn btn-primary primary-text" style="border-radius: 30px;padding: 7px 20px 7px 20px;"><b>Read More</b></a>
+      </div> 
     </section><!-- End What we offer/services Section -->
 
 <!-- <hr style="border-width: 2px;background-color: var(--secondary_color);" class="container"> -->
 
         <!-- ======= Field of application Section ======= -->
-    <section id="field-appilication" class="field-appilication white-bg">
-      <div class="container" data-aos="fade-up">
+    <section id="field-appilication" class="field-appilication" style="background: #e2e2e2 !important">
+      <div class="container">
 
         <div class="row">
 
-          <div class="col-lg-4 col-md-6 align-items-stretch min-height310" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-lg-4 col-md-6 align-items-stretch min-height310 mt-4" >
             <div class="icon-box field-find-more section-bg">
-              <h4 class="primary-text" style="text-align: left;padding-left: 7px;">Field of <br>Application</h4>
+              <h4 class="primary-text header-font-size" style="text-align: left;padding-left: 7px;">Field of <br>Application</h4>
               <hr style="width: 47%;margin-left: 6px;border-width: 4px;background-color: var(--secondary_color);">
-              <a href="#" class="text-black" style="font-weight: 600;">Find a right solutions for your industry!!</a>
+              <h4 class="primary-text body-font-size" style="text-align: left;padding-left: 7px;"><a href="#" class="text-black">Find a right solutions for your industry!!</a></h4>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="field field-has-link field-has-icon field-has-content">
-                <div class="field-header">
-                  <a target="_self" href="#"><img alt="Dairy Industry " src="assets/img/fields/milk.png"></a>
+          <?php $fieldApplication = $common->getIndependentDataByTypeCode('FOA'); 
+          if ($fieldApplication->num_rows > 0) { 
+            while($field = $fieldApplication->fetch_assoc()) { ?>
+              <div class="col-lg-4 col-md-6 align-items-stretch mt-4" >
+                <div class="field field-has-link field-has-icon field-has-content">
+                    <div class="field-header">
+                      <a target="_self" href="<?= $field['mstr_link']; ?>"><img alt="<?= $field['mstr_nm']; ?>" src="<?= $field['mstr_img']; ?>"></a>
+                    </div>
+                    <div class="field-content">
+                      <h3 class="field-title">
+                        <span class="iconify field-icon" data-icon="<?= $field['mstr_icon']; ?>"></span><?= $field['mstr_nm']; ?>
+                      </h3><!-- <br> -->
+                      <p class="field-desc text-black"><?= $field['mstr_desc']; ?></p>
+                      <a class="read-more primary-text" target="_self" href="<?= $field['mstr_link']; ?>">Read More</a>
+                    </div>
                 </div>
-
-                <div class="field-content">
-                  <h3 class="field-title">
-                    <span class="iconify field-icon" data-icon="si-glyph:botl-milk"></span>Dairy Industry
-                  </h3><br>
-                  <p class="field-desc text-black">Microfluid provides wide range of products for dairy industry.</p>
-                  <a class="read-more primary-text" target="_self" href="#">READ MORE</a>
-                </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="field field-has-link field-has-icon field-has-content">
-                <div class="field-header">
-                  <a target="_self" href="#"><img alt="Food & Beverage Industry " src="assets/img/fields/food.png"></a>
-                </div>
-
-                <div class="field-content">
-                  <h3 class="field-title">
-                    <span class="iconify field-icon" data-icon="mdi:food-fork-drink"></span>Food & Beverage Industry
-                  </h3><br>
-                  <p class="field-desc text-black">Microfluid provides wide range of products for Food & Beverage industry.</p>
-                  <a class="read-more primary-text" target="_self" href="#">READ MORE</a>
-                </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="field field-has-link field-has-icon field-has-content">
-                <div class="field-header">
-                  <a target="_self" href="#"><img alt="Chemical Industry" src="assets/img/fields/chemical.png"></a>
-                </div>
-
-                <div class="field-content">
-                  <h3 class="field-title">
-                    <span class="iconify field-icon" data-icon="entypo:lab-flask"></span>Chemical Industry
-                  </h3><br>
-                  <p class="field-desc text-black">Microfluid provides wide range of products for Chemical Industry.</p>
-                  <a class="read-more primary-text" target="_self" href="#">READ MORE</a>
-                </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="field field-has-link field-has-icon field-has-content">
-                <div class="field-header">
-                  <a target="_self" href="#"><img alt="Pharma & Biotech Industry" src="assets/img/fields/pharma.png" style="width: -webkit-fill-available;"></a>
-                </div>
-
-                <div class="field-content">
-                  <h3 class="field-title">
-                    <span class="iconify field-icon" data-icon="file-icons:dna" data-rotate="135deg"></span>Pharma & Biotech Industry
-                    <!-- <div class="field-icon"><span class="iconify" data-icon="carbon:dna" style="transform: rotate(135deg);left: 0px;width: 100%;height: 46px;font-size: 24px;"></div></span>Pharma & Biotech Industry -->
-                  </h3><br>
-                  <p class="field-desc text-black">Microfluid provides wide range of products for Pharma & Biotech Industry.</p>
-                  <a class="read-more primary-text" target="_self" href="#">READ MORE</a>
-                </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="field field-has-link field-has-icon field-has-content">
-                <div class="field-header">
-                  <a target="_self" href="#"><img alt="Home & Personal Care Industry" src="assets/img/fields/cosmetics.png"></a>
-                </div>
-
-                <div class="field-content">
-                  <h3 class="field-title">
-                    <span class="iconify field-icon" data-icon="icon-park-outline:cosmetic-brush"></span>Home & Personal Care Industry
-                  </h3><br>
-                  <p class="field-desc text-black">Microfluid provides wide range of products for Home & Personal Care Industry.</p>
-                  <a class="read-more primary-text" target="_self" href="#">READ MORE</a>
-                </div>
-            </div>
-          </div>
+              </div>
+            <?php } ?>
+          <?php } ?>
         </div>
         <br>
-        <div class="text-center aos-init aos-animate" data-aos="zoom-in-up">
+        <div class="text-center">
           <a href="#" class="btn btn-primary primary-text" style="border-radius: 30px;padding: 7px 20px 7px 20px;"><b>Read More</b></a>
         </div>
       </div>
@@ -251,13 +156,13 @@
     <!-- <hr style="border-width: 2px;background-color: var(--secondary_color);" class="container"> -->
 
     <!-- ======= About Us Section ======= -->
-    <section id="about-us" class="about-us" style="background: url('assets/img/about-banner.png') no-repeat center top ; height:25rem ; background-size: cover ;    padding: 0px; " data-aos="fade-up">  
-      <div style="position: absolute;z-index: 0;opacity: 0.7;width: 100%;height: 100%;    background: #C4C4C4 !important;"></div>
+    <section id="about-us" class="about-us about-us-banner" style="background: url('assets/img/about-banner.png') no-repeat center top ; height:26rem ; background-size: cover;padding: 0px;background-attachment: fixed;">  
+      <div class="banner-opacity" style="position: absolute;z-index: 0;opacity: 0.7;width: 100%;height: 100%;    background: #C4C4C4 !important;"></div>
         <div class="row col-md-12">
           <div class="col-md-7">
             <div class="about-section-title section-title">
-              <h2 class="primary-text" style="text-align: left;top: 30px;left: 30px;font-weight: 600;">About Us</h2>
-              <p class="text-left" style="padding-left: 30px;line-height: 28px;font-weight: 600;letter-spacing: 0.9px;">
+              <h2 class="primary-text header-font-size" style="text-align: left;top: 30px;left: 30px;">About Us</h2>
+              <p class="text-left body-font-size" style="padding-left: 30px;line-height: 28px;letter-spacing: 0.9px;">
                 <br><br>From last many years of now, <span class="primary-text"> Microfluid Process Equipment </span> has been persistently in its profession to provide best-in-class products and after sales service.<br><br>
                 <span class="primary-text"> Microfluid Process Equipment </span> have more than 25 years of experience in manufacturing, process industries and high pressure reciprocating pumps and homogenizers.
               </p>
@@ -275,8 +180,8 @@
    <!-- End About Us Section -->
 
      <!-- ======= Our Clients Section ======= -->
-    <section id="our_clients" class="our_clients">
-      <div class="container" data-aos="fade-up">
+<!--     <section id="our_clients" class="our_clients">
+      <div class="container">
         <div class="client_section_title">
           <h2 class="primary-text">Our Valued Clients</h2>
           <div class="client-container">
@@ -289,15 +194,6 @@
                     <div class="service_image ">
                       <img src="<?php echo BASE_URL .$client['image'];?>" class="img-responsive" alt="" / style="height: 100px;width: auto;margin: auto;">
                     </div>
-                    <div class="" style="padding:0px 15%">
-                      <div class="resource_title secondary-bg">
-                        <?php echo $client['name'];?>
-                      </div>
-                    </div>
-                    <div class="space10"></div>
-                    <div class="padding10 secondary_font_size text-center text-black master_desc">
-                      <?php echo $client['location'];?><br>
-                    </div>
                   </div>
                 </div>
               <?php } 
@@ -305,7 +201,7 @@
             </div>
         </div>
       </div>
-    </section>
+    </section> -->
   <!-- End Our Clients Section -->
 
    <!-- <hr style="border-width: 3px;background-color: var(--primary_color);" class="container"> -->

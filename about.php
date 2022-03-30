@@ -18,7 +18,8 @@
 <body>
 
   <!-- Header starts -->
-  <?php include 'header.php'; ?>
+  <?php //include 'header.php'; ?>
+  <?php include 'header_scroll.php'; ?>
   <!-- Header end -->
 
   <main id="main">

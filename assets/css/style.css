@@ -15,7 +15,7 @@
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: black;
 }
 
@@ -34,6 +34,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .letter-spacing{
   letter-spacing: 0.6px; 
+}
+
+.header-font-size{
+  font-size: 25px !important;
+  font-family: "Roboto slab", sans-serif;
+}
+.body-font-size{
+  font-size: 16px;
 }
 /*--------------------------------------------------------------
 # Back to top button
@@ -64,6 +72,48 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--secondary_color);
   transition: 0.3s ease-in-out;
 }
+
+/* Media queries start --*/
+
+@media only screen and (min-width: 1920px){
+
+}
+@media only screen and (max-width: 1280px) {
+
+}
+
+@media screen and (min-width:1024px) and (max-width:1279px) {
+
+}
+
+/* Smaller than standard 1024 (devices and browsers) */
+@media screen and (min-width:768px) and (max-width:1023px) {
+
+}
+
+/* Smaller than standard 768 (devices and browsers) */
+@media screen and (max-width:767px) {
+
+}
+
+/* Mobile Landscape Size (devices and browsers) */
+@media screen and (max-width:639px) {
+
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media screen and (max-width:479px) {
+  .carousel-item, .hero{
+    height: 148px !important;
+  }
+}
+
+@media screen and (max-width:359px) {
+  .carousel-item, .hero{
+    height: 148px !important;
+  }
+}
+/* Media queries end --*/
 
 /*--------------------------------------------------------------
 # Disable AOS delay on mobile
@@ -106,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header .logo img {
-  max-height: 40px;
+  max-height: 60px;
 }
 
 /*--------------------------------------------------------------
@@ -150,7 +200,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu .drop-down ul {
   display: block;
   position: absolute;
-  left: 0px;
+  left: -17px;
   top: calc(100% + 30px);
   z-index: 99;
   opacity: 0;
@@ -369,10 +419,13 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
   overflow: hidden;
   position: relative;
+}
+
+.carousel-item, .hero{
+  height: 480px;
 }
 
 #hero .carousel, #hero .carousel-inner, #hero .carousel-item, #hero .carousel-item::before {
@@ -458,9 +511,18 @@ h1, h2, h3, h4, h5, h6 {
   transform: translate3d(0, 0, 0);
 }
 
-#hero .carousel-control-prev, #hero .carousel-control-next {
+/*#hero .carousel-control-prev, #hero .carousel-control-next {
   width: 10%;
   opacity: 1;
+}*/
+#hero .carousel-control-prev, #hero .carousel-control-next {
+  width: 10%;
+  display: none;
+}
+
+.hero:hover .carousel-control-prev, .hero:hover .carousel-control-next {
+  width: 10%;
+  display: flex !important;
 }
 
 #hero .carousel-control-next-icon, #hero .carousel-control-prev-icon {
@@ -474,6 +536,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px;
   transition: 0.3s;
   color: rgba(255, 255, 255, 0.5);
+  /*opacity: 0;*/
 }
 
 #hero .carousel-control-next-icon:hover, #hero .carousel-control-prev-icon:hover {
@@ -504,6 +567,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   #hero .carousel-control-prev, #hero .carousel-control-next {
     width: 5%;
+    display: none;
   }
 }
 
@@ -522,7 +586,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-height: 500px) {
   #hero {
-    height: 120vh;
+    /*height: 120vh;*/
   }
 }
 
@@ -544,23 +608,21 @@ section {
 */}
 
 .section-title h2,.client_section_title h2 {
-  font-size: 32px;
+  font-size: 25px;
 /*  font-weight: bold;
   text-transform: uppercase;*/
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  font-family: Roboto Slab;
   letter-spacing: 1.5px;
   font-weight: 500;
-  font-size: 40px;
 }
 
 .section-title h2::after {
   content: '';
   position: absolute;
   display: block;
-  width: 18%;
+  width: 17%;
   height: 3px;
   background: var(--secondary_color) !important;;
   bottom: 15px;
@@ -593,7 +655,7 @@ section {
 
 .breadcrumbs h2 {
   font-size: 17px;
-  font-weight: 300;
+  font-weight: 400;
   color: #fff;
 }
 
@@ -654,11 +716,19 @@ section {
   justify-content: center;
   transition: ease-in-out 0.3s;
   position: relative;
+  height: 250px;
 }
 .services .icon-box .icon img{
-  height: 250px;
-  width: 94%;
+  height: auto;
+  width: 80%;
   padding: 10px;
+}
+
+.services .icon-box img{
+  transition: 0.5s all ease-in-out;
+}
+.services .icon-box:hover img {
+  transform: scale(1.1);
 }
 .services .icon-box .icon i {
   font-size: 36px;
@@ -679,11 +749,10 @@ section {
 
 .services .icon-box h4 {
   margin: 10px 0 15px 0;
-  font-size: 22px;
+  font-size: 1rem;
 }
 
 .services .icon-box h4 a {
-  color: #111;
   transition: ease-in-out 0.3s;
 }
 
@@ -694,11 +763,39 @@ section {
 }
 
 .services .icon-box:hover {
-  border-color: #fff;
+  /*border-color: #fff;
   box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.08);
-  border: 3px solid var(--primary_color) !important;;
+  border: 3px solid var(--primary_color) !important;*/
 }
 
+a.service_name
+{
+    position: relative;
+}
+
+/*a.service_name:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: var(--secondary_color);
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.services .icon-box:hover a.service_name:before {
+  visibility: visible;
+  width: 100%;
+}*/
+
+.services .icon-box:hover .service_name > i {
+  background: var(--primary_color);
+  color: white !important;
+  border-radius: 25px;
+  padding: 2px;
+}
 .services .iconbox-blue i {
   color: #47aeff;
 }
@@ -2146,7 +2243,7 @@ section {
 
 #footer .footer-top {
   padding: 60px 0 0 0;
-  background: white;
+  background: #e2e2e2;
 }
 
 #footer .footer-top .footer-contact {
@@ -2173,11 +2270,10 @@ section {
 }
 
 #footer .footer-top h4 {
-  font-size: 22px;
-  font-weight: bold;
+  /*font-weight: bold;*/
   color: var(--primary_color);
   position: relative;
-  padding-bottom: 12px;
+  padding-bottom: 20px;
   letter-spacing: 0.9px;
 }
 
@@ -2185,20 +2281,20 @@ section {
     content: '';
     position: absolute;
     display: block;
-    bottom: 12px;
+    bottom: 15px;
     background: var(--secondary_color) !important;
     height: 3px;
     left: calc(4% - 15px);
 }
 
 #footer .footer-top h4.usefull-links::after {
-  width: 29%;
+  width: 38%;
 }
 #footer .footer-top h4.products::after {
-  width: 26%;
+  width: 32%;
 }
 #footer .footer-top h4.contact-us::after {
-  width: 31%;
+  width: 39%;
 }
 
 #footer .footer-top .footer-links {
@@ -2248,11 +2344,10 @@ section {
 }
 
 #footer .footer-newsletter h4 {
-  font-size: 22px;
-  font-weight: bold;
+  /*font-weight: bold;*/
   color: var(--primary_color);
   position: relative;
-  padding-bottom: 12px;
+  padding-bottom: 20px;
 }
 
 #footer .footer-newsletter form {
@@ -2302,7 +2397,7 @@ section {
   background: var(--primary_color);
   color: #fff;
   line-height: 1;
-  padding: 8px 0;
+  padding: 9px 0;
   margin-right: 4px;
   border-radius: 25px;
   text-align: center;
@@ -2312,11 +2407,12 @@ section {
 }
 
 #footer .social-links a:hover {
-  background: white;
+  background: #e2e2e2;
   color: var(--secondary_color);
   text-decoration: none;
   font-size: 25px;
   transform: scale(1.3);
+  padding: 5px;
 }
 
 /*Extra CSS Start*/
@@ -2375,10 +2471,11 @@ section {
   position: relative; 
   padding: 0px 0;
 }
+
 .nav-menu > ul > li >a {
   color: #fff;
   text-decoration: none;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.05em;
   display: inline-block;
   padding: 9px 14px;
   position: relative;
@@ -2396,7 +2493,7 @@ section {
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
-.nav-menu > ul > li > a:hover:after { 
+.nav-menu > ul > li > a:hover:after , .sticky > .nav-menu > ul > li > a:hover:after { 
   width: 100%; 
   left: 0; 
 }
@@ -2439,13 +2536,17 @@ section {
 # field of appilication
 --------------------------------------------------------------*/
 
-.field-appilication .field-find-more:hover {
+/*.field-appilication .field-find-more:hover {
   background: var(--primary_color) !important;
 }
 .field-appilication .field-find-more:hover > a,.field-appilication .field-find-more:hover > h4 {
   color: white !important;
 }
+*/
 
+.field-appilication .field-find-more{
+  box-shadow: 3px 0 6px 0 rgb(0 0 0);
+}
 
 .field-appilication .icon-box {
   text-align: center;
@@ -2485,7 +2586,7 @@ section {
 
 .field-appilication .icon-box h4 {
   margin: 15px 0 15px 0;
-  font-size: 22px;
+  /*font-size: 22px;*/
 }
 
 .field-appilication .icon-box h4 a {
@@ -2499,20 +2600,19 @@ section {
   margin-bottom: 0;
 }
 
-.field-appilication .icon-box:hover {
+/*.field-appilication .icon-box:hover {
   border-color: #fff;
   box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.08);
-}
+}*/
 
 .field-icon{
     position: absolute;
     left: 0px;
     width: 16%;
     height: 46px;
-    font-size: 24px;
     color: white;
     background: var(--primary_color);
-    top: 0px;
+    top: -1px;
     border-bottom: 5px solid var(--primary_color) !important;
 }
 
@@ -2564,11 +2664,11 @@ section {
   }
 
 }
-.field:hover .field-title{
+/*.field:hover .field-title{
   padding-top: 5% !important;
-}
+}*/
 .field-content {
-    background-color: #fff;
+    background-color: #ffffffcf;
     border-top: 5px solid var(--primary_color);
     padding-left: 20px;
     padding-right: 0px;
@@ -2583,7 +2683,7 @@ section {
     margin-bottom: 0;
     margin-top: 0;
     padding-top: 6px;
-    font-size: 18px;
+    font-size: 1.1rem;
     font-style: normal;
     font-weight: 400;
     line-height: 30px;
@@ -2605,9 +2705,9 @@ section {
 }
 .field-desc{
   font-family: Roboto Slab;
-  font-size: 18px;
+  font-size: 15px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: normal;
   line-height: 24px;
   letter-spacing: 0.05em;
   text-align: left;
@@ -2617,7 +2717,7 @@ section {
 }
 .read-more{
   font-family: Roboto Slab;
-  font-size: 18px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
@@ -2625,7 +2725,17 @@ section {
   text-align: left;
 }
 .field:hover .field-icon{
-    position: absolute;
+  position: absolute;
+    left: 0px;
+    width: 16%;
+    height: 37px;
+    background: #ffffff00;
+    color: var(--primary_color);
+    top: 3px;
+    border: none !important;
+
+
+   /* position: absolute;
     left: 15px;
     width: 16%;
     height: 46px;
@@ -2633,13 +2743,13 @@ section {
     background: white;
     color: var(--primary_color);
     top: 8px;
-    border: none !important;
+    border: none !important;*/
 }
 .about-section-title h2::after {
     content: '';
     position: absolute;
     display: block;
-    width: 23%;
+    width: 17%;
     height: 3px;
     background: var(--secondary_color) !important;
     bottom: 15px;
@@ -2664,9 +2774,97 @@ p {
 }
 
 .breadcrumb-text{
-  font-weight: 300;
+  font-weight: 400;
   font-size: 35px;
-  letter-spacing: 1.3px;
+  /*letter-spacing: 1.3px;*/
   width: 50%;
   margin-left: 4rem;
+  font-family: "Roboto slab", sans-serif;
 }
+
+/*Header scroll file css start*/
+.top-container {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+.header {
+  padding: 0px;
+}
+
+.head_content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white !important;
+  color: var(--primary_color);
+  height: 67px;
+ /* padding-top: 10px !important;*/
+  border-bottom: 1px solid var(--primary_color);
+
+}
+
+.sticky .nav-menu .drop-down ul{
+top: calc(100% + 13px) !important;
+}
+
+.sticky > .nav-menu{
+  margin-left: 23%;
+}
+
+.nav-menu{
+  margin-left: 23%;
+}
+
+.sticky > .nav-menu > ul > li > a,.sticky > .header-social-links > a > *{
+  color: var(--primary_color);
+}
+
+.sticky > .nav-menu .active > a:after  {
+  background: none repeat scroll 0 0 transparent;
+  bottom: -13px;
+  content: "";
+  display: block;
+  height: 4px;
+  left: 50%;
+  position: absolute;
+  background: var(--secondary_color) !important;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 100%;
+  left: 0;
+}
+
+.sticky > .nav-menu > ul > li > a:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: -13px;
+  content: "";
+  display: block;
+  height: 4px;
+  left: 50%;
+  position: absolute;
+  background: var(--secondary_color) !important;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+.sticky + .head_content {
+  padding-top: 102px;
+}
+.sticky .list-logo {
+    display: block;
+    transition-delay: 5s;
+}
+.list-logo {
+    position: absolute;
+    /*top: 0px;*/
+    left: 0px;
+    width: 115px;
+    display: none;
+}
+
+/*Header scroll file css end*/

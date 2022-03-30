@@ -2,6 +2,7 @@
 /** Class Common_query 
 All common database query methods
 **/
+/*** object name: $query_obj ***/
 session_start();
 Class Common_query{
 

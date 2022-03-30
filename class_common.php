@@ -2,6 +2,7 @@
 /** Class Common
 All common database query methods
 **/
+/*** object name: $common ***/
 Class Class_common{
 
 	function __construct(){
@@ -63,6 +64,16 @@ Class Class_common{
 		}
 
 		return $value['name'];
+	}
+
+	/*function for get master data by type code
+	* @params varchar type $type_code
+	* @return array
+	*/
+	function getIndependentDataByTypeCode($type_code=''){
+
+		$result = $this->db->query("SELECT * FROM independent_mst where type_cd='".$type_code."' order by sequence asc");
+		return $result;
 	}
 
 }

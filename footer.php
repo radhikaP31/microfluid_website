@@ -3,22 +3,22 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-6 footer-links" >
-            <h4 class="usefull-links">Microfluid</h4>
+            <h4 class="usefull-links header-font-size">Microfluid</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="index.php">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="about.php">About Us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Products</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Industries</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Service</a></li>
+              <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">Service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Clients</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Blogs</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Blogs</a></li> -->
               <li><i class="bx bx-chevron-right"></i> <a href="#">Inquiry</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Contact</a></li>
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-links">
-            <h4 class="products">Products</h4>
+            <h4 class="products header-font-size">Products</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">High Pressure Homogenizers</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Pumps</a></li>
@@ -29,19 +29,19 @@
             </ul>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4 class="primary-text contact-us">Contact Us</h4>
-            <p style="line-height: 36px">
-              <span class="primary-text" style="margin-right: 4%;"><i class="fa fa-phone fa-rotate-90"></i> +91 70168 65019  </span><br>
-              <span class="primary-text" style="margin-right: 4%;width: 25%;letter-spacing: 1px;"><i class="fa fa-envelope"></i>&nbsp;<a class="primary-text hover-mail" href="mailto:sales@microfluidprocess.com">sales@microfluidprocess.com</a> </span>
-            </p>
-            <div class="pt-3 social-links" style="line-height: 50px;">
+          <div class="col-lg-4 col-md-6 footer-newsletter footer-links">
+            <h4 class="primary-text contact-us header-font-size">Contact Us</h4>
+            <ul>
+              <li><span class="primary-text" style="margin-right: 4%;"><i class="fa fa-phone fa-rotate-90"></i> +91 70168 65019  </span></li>
+              <li><span class="primary-text" style="letter-spacing: 1px;"><i class="fa fa-envelope"></i>&nbsp;<a class="primary-text hover-mail" href="mailto:sales@microfluidprocess.com">sales@microfluidprocess.com</a> </span></li>
+            </ul>
+            <div class="pt-3 social-links" style="line-height: 53px;">
               <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
               <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
               <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
               <a href="#" class="youtube"><i class="bx bxl-youtube"></i></a>
-              <a href="#" class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
+              <a href="https://api.whatsapp.com/send?phone=917016865019&amp;text=Hi, I want to business with you!!" target="_blank" class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
               <a href="#" class="skype"><i class="bx bxl-skype"></i></a>
             </div>
           </div>
