@@ -1,6 +1,6 @@
-<header id="header" class="header fixed-top" >
+<header id="header" class="header" >
     <!-- email, contact info -->
-    <div  class="container d-flex align-items-center" style="height:40px;padding-left: 0%;padding-right: 0%;margin-bottom: 1%;"> 
+    <div  class="container d-flex align-items-center top-container" style="height:68px;padding-left: 0%;padding-right: 0%;margin-bottom: 0%;"> 
       <a href="index.php" class="logo mr-auto"><img src="assets/img/Logo.png" alt="" class="img-fluid"></a>
       <span class="primary-text" style="margin-right: 4%;"><i class="fa fa-phone fa-rotate-90"></i> +91 70168 65019  </span>
       <span class="primary-text" style="margin-right: 4%;width: 25%;letter-spacing: 1px;"><i class="fa fa-envelope"></i>&nbsp;<a class="primary-text hover-mail" href="mailto:sales@microfluidprocess.com">sales@microfluidprocess.com</a> </span>
@@ -8,13 +8,16 @@
       <a href="#" class="btn btn-primary primary-text get_quote" style="border-radius: 30px;"><b>Get a Fair Quote</b></a>
     </div>
 
-    <div class="container-fluid d-flex align-items-center padding0 primary-bg">
-      <nav class="nav-menu d-none d-lg-block" style="margin-left: 10%;">
+    <div class="container-fluid d-flex align-items-center padding0 primary-bg header" id="myHeader">
+          
+      <nav class="nav-menu d-none d-lg-block">
+      <div class="list-logo" style="margin-left:5%;top: 4px;"><a href="index.php" class="logo mr-auto"><img src="assets/img/Logo.png" alt="" class="img-fluid" ></a>
+      </div>
         <ul>
           <li class="active"><a href="index.php">Home</a></li>
           <li><a href="about.php">About Us</a></li>
           <li class="drop-down"><a href="">Products <i class="fa fa-sort-down" aria-hidden="true"></i></a>
-            <ul>
+            <ul class="product_dd">
               <li><a href="#">Product 1</a></li>
               <li><a href="#">Product 2</a></li>
               <li><a href="#">Product 3</a></li>
@@ -23,9 +26,9 @@
             </ul>
           </li>
           <li><a href="">Industries</a></li>
-          <li><a href="">Service</a></li>
+          <!-- <li><a href="">Service</a></li>
           <li><a href="">Clients</a></li>
-          <li><a href="">Blogs</a></li>
+          <li><a href="">Blogs</a></li> -->
           <li><a href="">Inquiry</a></li>
           <li><a href="">Contact</a></li>
           <!-- Second Dropdown inside one dropdown
@@ -75,8 +78,8 @@
 
 
 <!-- ======= Breadcrumbs ======= -->
-  <section id="breadcrumbs" class="breadcrumbs" style="padding: 0px;height: 9rem;background-image: url(assets/img/breadcrumb/breadcrumb_img.png);background-size: cover;">
-    <div style="position: absolute;z-index: 0;opacity: 0.7;width: 100%;height: 9rem;background: white;"></div>
+  <section id="breadcrumbs" class="breadcrumbs" style="padding: 0px;height: 100%;background-image: url(assets/img/breadcrumb/breadcrumb_img.png);background-size: cover;">
+    <div style="position: absolute;z-index: 0;opacity: 0.7;width: 100%;height: 100%;background: white;"></div>
     <div class="col-md-12 d-flex justify-content-between align-items-center" style="bottom: -4%;"> 
       <h3 class="text-left primary-text breadcrumb-text" ><?php echo $common->getLanguage('breadcrumb_desc'); ?></h3>       
     </div>

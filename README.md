@@ -42,4 +42,4 @@ Software crud for website
 
 CHANGES PENDING:
 responsive changes of banner
-dynamic of field application section , design changes
+field application - Read more in orange with arrow

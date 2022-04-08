@@ -33,7 +33,7 @@ Class Common_query{
 	* @return array  
 	**/
 	function getAboutUsInformation() {
-	    return $this->db->query("SELECT * FROM web_about_info ");
+	    return $this->db->query("SELECT * FROM web_about_info order by sequence");
 	}
 }
 

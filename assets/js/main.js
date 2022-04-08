@@ -202,12 +202,28 @@ $('.client-container').slick({
 var height =  $('.fixed-top').outerHeight();
 $('.header_space').css('height',height+'px');
 
-//about us page js start
+/*//about us page js start old
 //$( ".about-us-blocks div:first-child" ).css( "display", "inline" );
 $( ".about-us-blocks div:first-child" ).removeAttr("style");
 
 $(".about-us-nav li:first").addClass("active");
 //$( ".about-us-blocks" ).first().css( "background-color", "red" );
+jQuery('.block-filter').click(function(){
+    jQuery('.block-filter').removeClass('active');
+    jQuery(this).addClass('active');
+    let type = jQuery(this).data('block_type');
+    console.log('.block-type-'+type);
+    jQuery('.block-type').hide();
+    jQuery('.block-type-'+type).show();
+
+});
+//about us page js end old */
+
+//about us page js start
+//$( ".about-us-blocks div:first-child" ).css( "display", "inline" );
+$( ".about-us-blocks div:first-child" ).removeAttr("style");
+
+$(".list-group a:first").addClass("active");
 jQuery('.block-filter').click(function(){
     jQuery('.block-filter').removeClass('active');
     jQuery(this).addClass('active');
