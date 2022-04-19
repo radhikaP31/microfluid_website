@@ -202,6 +202,13 @@ $('.client-container').slick({
 var height =  $('.fixed-top').outerHeight();
 $('.header_space').css('height',height+'px');
 
+//set height of breadcrumb opacity div
+var opacity_height =  $('.breadcrumbs').outerHeight();
+$('.opacity-breadcrumbs').css('height',opacity_height+'px');
+
+//height of about us opacity banner
+$('.banner-opacity').height($('.about-us-banner').height());
+
 /*//about us page js start old
 //$( ".about-us-blocks div:first-child" ).css( "display", "inline" );
 $( ".about-us-blocks div:first-child" ).removeAttr("style");
@@ -223,17 +230,74 @@ jQuery('.block-filter').click(function(){
 //$( ".about-us-blocks div:first-child" ).css( "display", "inline" );
 $( ".about-us-blocks div:first-child" ).removeAttr("style");
 
-$(".list-group a:first").addClass("active");
+$(".about-list-group a:first").addClass("active");
 jQuery('.block-filter').click(function(){
     jQuery('.block-filter').removeClass('active');
     jQuery(this).addClass('active');
     let type = jQuery(this).data('block_type');
-    console.log('.block-type-'+type);
     jQuery('.block-type').hide();
     jQuery('.block-type-'+type).show();
 
 });
 //about us page js end
+
+//products page js start
+
+$(".product-list-group a:first").addClass("active");
+jQuery('.product-cat').click(function(){
+    jQuery('.product-cat').removeClass('active');
+    jQuery(this).addClass('active');
+    let type = jQuery(this).data('sc_cat');
+    //console.log('.product-cat-filter-'+type);
+    jQuery('.product-cat-filter').hide();
+    jQuery('.product-cat-filter-'+type).show();
+
+});
+//tab is selected and redirect to the category
+$('.product-list-group-item').on('click', function(e) {
+    // Save value in localstorage
+    localStorage.setItem("activeTab", $(e.target).attr('href'));
+    localStorage.setItem('productCatCD', $(e.target).attr('data-sc_cat'));
+ });
+// get value of localstorage
+var activeTab = localStorage.getItem('activeTab');
+var productCatCD = localStorage.getItem('productCatCD');
+if(activeTab){
+  //if value is store in local storage then active tab and show product tab
+    $('.product-list-group a[href="' + activeTab + '"]').tab('show');
+    $(".product-cat-filter-"+productCatCD).css("display","block");
+}
+
+//products page js end
+
+//product page js start
+let slideIndex = 1;
+showSlides(slideIndex);
+
+$('.prev-product-img,.next-product-img').click(function() {
+  showSlides(slideIndex += jQuery(this).data('slide_count'));
+});
+
+$('.product-cursor').click(function() {
+  showSlides(slideIndex = jQuery(this).data('slide'));
+});
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("my-product-slides");
+  let dots = document.getElementsByClassName("product-image");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+//product page js end
 
 window.onscroll = function() {myFunction()};
 
@@ -248,8 +312,5 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
-
-//height of about us opacity banner
-$('.banner-opacity').height($('.about-us-banner').height());
 
 })(jQuery);

@@ -16,14 +16,15 @@
         <ul>
           <li class="active"><a href="index.php">Home</a></li>
           <li><a href="about.php">About Us</a></li>
-          <li class="drop-down"><a href="">Products <i class="fa fa-sort-down" aria-hidden="true"></i></a>
+          <li class="drop-down"><a href="products.php?category_id=1">Products</a> 
+            <!-- <i class="fa fa-sort-down" aria-hidden="true"></i>
             <ul class="product_dd">
               <li><a href="#">Product 1</a></li>
               <li><a href="#">Product 2</a></li>
               <li><a href="#">Product 3</a></li>
               <li><a href="#">Product 4</a></li>
               <li><a href="#">Product 5</a></li>
-            </ul>
+            </ul> -->
           </li>
           <li><a href="">Industries</a></li>
           <!-- <li><a href="">Service</a></li>
@@ -79,12 +80,12 @@
 
 <!-- ======= Breadcrumbs ======= -->
   <section id="breadcrumbs" class="breadcrumbs" style="padding: 0px;height: 100%;background-image: url(assets/img/breadcrumb/breadcrumb_img.png);background-size: cover;">
-    <div style="position: absolute;z-index: 0;opacity: 0.7;width: 100%;height: 100%;background: white;"></div>
+    <div class="opacity-breadcrumbs" style="position: absolute;z-index: 0;opacity: 0.7;width: 100%;height: 100%;background: white;"></div>
     <div class="col-md-12 d-flex justify-content-between align-items-center" style="bottom: -4%;"> 
       <h3 class="text-left primary-text breadcrumb-text" ><?php echo $common->getLanguage('breadcrumb_desc'); ?></h3>       
     </div>
-    <div class="col-md-12 d-flex justify-content-between align-items-center" style="bottom: -9%;background: rgb(113 113 113 / 54%);letter-spacing: 1.3px;"> 
-      <h2  class="primary-text" style="margin: 9px 4rem;">
+    <div class="col-md-12 d-flex justify-content-between align-items-center" style="bottom: -9%;background: rgb(0 0 0 / 48%);letter-spacing: 1.3px;"> 
+      <h2  class="primary-text breadcrumb-link" style="margin: 9px 4rem;">
         <?php echo $common->breadcrumbs(' &#124; ','Home'); ?>
       </h2>         
     </div>

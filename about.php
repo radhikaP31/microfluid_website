@@ -28,7 +28,7 @@
     <section class="about-us container-fluid" id="about-us">
       <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 m-0">
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="border-right: 1px solid var(--primary_color);">
-          <div class="list-group">
+          <div class="about-list-group">
               <?php $about_tab = $query_obj->getAboutUsInformation(); 
                   if ($about_tab->num_rows > 0) { 
                     while($about = $about_tab->fetch_assoc()) { ?>

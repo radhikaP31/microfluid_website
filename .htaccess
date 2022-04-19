@@ -13,3 +13,6 @@ RewriteRule . /microfluidprocess/index.php [L]
 #remove php extension from end
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [QSA,L]
+
+#RewriteEngine on 
+#RewriteRule ^product/([a-zA-Z0-9]+)/?$ products.php?productid=$1 [L,QSA]
