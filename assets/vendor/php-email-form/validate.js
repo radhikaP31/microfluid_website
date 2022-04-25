@@ -8,7 +8,6 @@
 
   $('form.php-email-form').submit(function(e) {
     e.preventDefault();
-    
     var f = $(this).find('.form-group'),
       ferror = false,
       emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
@@ -128,7 +127,16 @@
       type: "POST",
       url: action,
       data: data,
-      timeout: 40000
+      timeout: 40000,
+      success: function(data) {
+        swal({
+            title: "Success",
+            text: data,
+            type: "success"
+        }).then(function() {
+            window.top.location = "/microfluid_website/products.php?category_id=1";
+        });
+      }
     }).done( function(msg){
       if (msg.trim() == 'OK') {
         this_form.find('.loading').slideUp();
@@ -139,7 +147,7 @@
         if(!msg) {
           msg = 'Form submission failed and no error message returned from: ' + action + '<br>';
         }
-        this_form.find('.error-message').slideDown().html(msg);
+        /*this_form.find('.error-message').slideDown().html(msg);*///its display message in div of modal so not looks good with alert so, romoved it.
       }
     }).fail( function(data){
       console.log(data);

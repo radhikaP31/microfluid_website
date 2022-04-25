@@ -19,7 +19,25 @@ Class Common_query{
 	/**Function for declare constant**/
 	function constantVariables(){
 
-		define("BASE_URL", "http://" . $_SERVER['SERVER_NAME'].'/microfluid_website');
+		// This will build our "base URL" ... Also accounts for HTTPS :)
+		if(array_key_exists('HTTPS', $_SERVER)){
+
+	    	$BASE_URL = ($_SERVER['HTTPS'] ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/microfluid_website';
+	    }else{
+	    	$BASE_URL = 'http' . '://' . $_SERVER['HTTP_HOST'] . '/microfluid_website';
+	    }
+
+		//$BASE_URL = "http://" . $_SERVER['SERVER_NAME'].'/microfluid_website';
+		$BASE_URL_SSL = $BASE_URL;
+		define('SSL_ON',(array_key_exists('HTTPS',$_SERVER) AND strtolower($_SERVER['HTTPS']) == 'on'));
+	    if(SSL_ON AND !empty($BASE_URL_SSL)) {
+	        define('BASE_URL', rtrim($BASE_URL_SSL,'/'));
+	    } else if(!defined('BACKGROUND_TASK')) {
+	        define('BASE_URL', rtrim($BASE_URL,'/'));
+	    }
+	    define('BASE_URL_SSL', (!empty($BASE_URL_SSL) ? rtrim($BASE_URL_SSL,'/') : rtrim($BASE_URL,'/')));
+	    define('BASE_URL_NOSSL', rtrim($BASE_URL,'/'));
+
 		//define('BASE_URL', "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']);
 	}
 
@@ -82,13 +100,22 @@ Class Common_query{
 		return $this->db->query("SELECT * FROM web_products where is_deleted=0 and category_id = ".$category_id.$sql." order by sequence");
 	}
 
-	/**Function to get products from web_products table
+	/**Function to get products from web_products,web_product_image table
 	* @params $product_id type integer
 	* @return array  
 	**/
 	function getProductDetailsByID($product_id=0)
 	{	
-		return $this->db->query("SELECT * FROM web_products where is_deleted=0 and id = ".$product_id);
+		return $this->db->query("SELECT * FROM web_products wp where wp.is_deleted=0 and wp.id = ".$product_id);
+	}
+
+	/**Function to get products image from web_products,web_product_image table
+	* @params $product_id type integer
+	* @return array  
+	**/
+	function getProductImagesByProductID($product_id=0)
+	{	
+		return $this->db->query("SELECT pi.* FROM web_products wp JOIN web_product_image pi on wp.id=pi.product_id where wp.is_deleted=0 and wp.id = ".$product_id);
 	}
 }
 

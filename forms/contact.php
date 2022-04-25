@@ -6,8 +6,8 @@
   * For more info and help: https://bootstrapmade.com/php-email-form/
   */
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+  // Replace form@example.com with your real receiving email address
+  $receiving_email_address = 'sales@microfluidprocess.com';
 
   if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
     include( $php_email_form );
@@ -15,17 +15,12 @@
     die( 'Unable to load the "PHP Email Form" Library!');
   }
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+  $form = new PHP_Email_Form;
+  $form->ajax = true;
 
   // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
   /*
-  $contact->smtp = array(
+  $form->smtp = array(
     'host' => 'example.com',
     'username' => 'example',
     'password' => 'pass',
@@ -33,9 +28,28 @@
   );
   */
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+  if($_POST['form_name'] == 'product_inquiry'){
 
-  echo $contact->send();
+    $form->to = $receiving_email_address;
+    $form->from_name = $_POST['name'];
+    $form->company = $_POST['company'];
+    $form->area = $_POST['area'];
+    $form->country = $_POST['country'];
+    $form->phone = $_POST['phone'];
+    $form->email = $_POST['email'];
+    $form->message = $_POST['message'];
+    $form->product_id = $_POST['product_id'];
+    
+    echo $form->addInquiryDetails();
+
+  }else if($_POST['form_name'] == 'contact_form'){
+    $form->to = $receiving_email_address;
+    $form->from_name = $_POST['name'];
+    $form->from_email = $_POST['email'];
+    $form->subject = $_POST['subject'];
+
+    echo $form->send();
+  }
+  
+  
 ?>

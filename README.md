@@ -25,6 +25,8 @@ note changes - changes.txt
 - In database.php we have database connection. 
 - manual.js file include in head.php file
 - language function in class_common.php
+- product request modal load in header_scroll.php file (request_modal)
+
 
 # for any CLASS declaration
 1. create class

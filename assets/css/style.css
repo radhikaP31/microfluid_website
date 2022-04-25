@@ -80,6 +80,12 @@ h1, h2, h3, h4, h5, h6 {
 .font-family-roboto{
     font-family: Roboto Slab;
 }
+.modal {
+  background: rgb(0 0 0 / 40%); /* The color depends on your template */
+}
+.modal-backdrop {
+  display: none;
+}
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -1013,10 +1019,9 @@ a.list-group-item, button.list-group-item {
 .prev_arrow,.next_arrow {
   cursor: pointer;
   position: absolute;
-  /*top: 40%;*/
   width: auto;
   padding: 5px;
-  margin-top: -50px;
+  top: 27%;
   background: transparent;
   color: var(--primary_color);
   font-weight: bold;
@@ -1051,8 +1056,9 @@ a.list-group-item, button.list-group-item {
   opacity: 0.6;
 }
 
-.active,.product-image:hover {
+.active_product,.product-image:hover {
   opacity: 1;
+  border-bottom: 1px solid var(--secondary_color);
 }
 
 .product_active_img{
@@ -1258,7 +1264,7 @@ a.list-group-item, button.list-group-item {
 .primary-text{
   color: var(--primary_color) !important;
 }
-.secondarytext{
+.secondarytext,.secondary-text{
   color: var(--secondary_color) !important;
 }
 .primary-bg{
@@ -3060,3 +3066,4 @@ top: calc(100% + 13px) !important;
   color: #aaaaaa;
   font-size: 14px;
 }
+

@@ -270,35 +270,6 @@ if(activeTab){
 
 //products page js end
 
-//product page js start
-let slideIndex = 1;
-showSlides(slideIndex);
-
-$('.prev-product-img,.next-product-img').click(function() {
-  showSlides(slideIndex += jQuery(this).data('slide_count'));
-});
-
-$('.product-cursor').click(function() {
-  showSlides(slideIndex = jQuery(this).data('slide'));
-});
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("my-product-slides");
-  let dots = document.getElementsByClassName("product-image");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
-//product page js end
-
 window.onscroll = function() {myFunction()};
 
 var header = document.getElementById("myHeader");

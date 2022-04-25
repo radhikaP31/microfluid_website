@@ -26,38 +26,67 @@
     <!-- <hr style="margin: 2% 10%;background: #b5b5b5;" /> -->
 
     <!-- ======= View Product Section ======= -->
+   <!--  <?php
 
-    <?php $product_cat_tab = $query_obj->getProductDetailsByID($_GET['id']); //get all product category
-      if ($product_cat_tab->num_rows > 0) {
-        while($cat = $product_cat_tab->fetch_assoc()) { ?>
-
-        <?php } ?>
-      <?php } ?> 
+    if(isset($_GET['id'])){
+      //header("Location: ".BASE_URL."'/products.php?category_id=1'");
+      $product_id = $_GET['id'];
+    }else{ ?>
+      <script type="text/javascript">
+      window.location = BASE_URL+'/products.php?category_id=1';
+      </script>  
+      
+    <?php }?> -->
+     
    <section class="row col-md-12 product container-fluid" id="product">
-    <div class="col-md-4" style="border-right: 1px solid black;">
-      <div class="my-product-slides">
-        <div class="image-number-text">1 / 2</div>
-        <img src="<?php echo BASE_URL.'/assets/img/application/pump.jpeg'; ?>" class="product_active_img">
-      </div>
+    <?php $product_detail = $query_obj->getProductDetailsByID($_GET['id']); //get product details
+    if ($product_detail->num_rows > 0) { //product start 1
+      while($product = $product_detail->fetch_assoc()) { //product start 2 ?> 
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container" style="    padding-bottom: 2%;">
+          <h2 class="primary-text header-font-size"><?= $product['p_name']; ?></h2>
+        </div>
+        <div class="col-md-4" style="border-right: 1px solid black;">
+          <?php $p_image_detail = $query_obj->getProductImagesByProductID($_GET['id']); //get product images
+          if ($p_image_detail->num_rows > 0) { //product image start 1
+            while($image = $p_image_detail->fetch_assoc()) { //product image start 2 ?>
+          
+            <div class="my-product-slides">
+              <div class="image-number-text">1 / 2</div>
+              <img src="<?= BASE_URL.'/'.$image['img_path']; ?>" class="product_active_img">
+            </div>
 
-      <div class="my-product-slides">
-        <div class="image-number-text">2 / 2</div>
-        <img src="<?php echo BASE_URL.'/assets/img/application/lobe-pump.jpg'; ?>" class="product_active_img">
-      </div>
+            <?php } //product image end 1 ?>
+          <?php } //product image end 2 ?>
 
-      <a class="prev_arrow prev-product-img" data-slide_count="-1">❮</a>
-      <a class="next_arrow next-product-img" data-slide_count="1">❯</a>
+            <a class="prev_arrow prev-product-img" data-slide_count="-1">
+              <span class="iconify secondary-text" data-icon="ic:round-keyboard-double-arrow-left" data-width="32" data-height="32"></span>
+            </a>
+            <a class="next_arrow next-product-img" data-slide_count="1">
+              <span class="iconify secondary-text" data-icon="ic:round-keyboard-double-arrow-right" data-width="32" data-height="32"></span>
+            </a>
 
-      <div class="row col-md-12">
-      <div class="col-md-5">
-        <img class="product-image product-cursor " src="<?php echo BASE_URL.'/assets/img/application/pump.jpeg'; ?>" style="width: 100px;height: auto;" data-slide="1">
-      </div>
-      <div class="col-md-5">
-        <img class="product-image product-cursor " src="<?php echo BASE_URL.'/assets/img/application/lobe-pump.jpg'; ?>" style="width: 100px;height: auto;" data-slide="2">
-      </div>
-    </div>
-    <div class="col-md-8">
-    </div>
+            <div class="row col-md-12">
+              <?php $p_image_detail = $query_obj->getProductImagesByProductID($_GET['id']); //get product images
+              if ($p_image_detail->num_rows > 0) { //product image start 1
+                $count = 1;
+                while($image = $p_image_detail->fetch_assoc()) { //product image start 2 ?>
+                  <div class="col-md-4">
+                    <img class="product-image product-cursor " src="<?= BASE_URL.'/'.$image['img_path']; ?>" style="width: auto; height: 70px;" data-slide="<?= $count; ?>">
+                  </div>
+
+                <?php $count++; } //product image end 1 ?>
+              <?php } //product image end 2 ?>
+            </div>
+        </div>
+        <div class="col-md-8">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container" style="    padding-bottom: 2%;">
+            <p><?= $product['p_description']; ?></p>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#req_quote">Request Quote</a>
+          </div>
+        </div>
+
+      <?php } //product start 1 ?>
+    <?php } //product start 2 ?>
 
     
 
@@ -72,3 +101,34 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+  //product page js start
+let slideIndex = 1;
+showSlides(slideIndex);
+
+$('.prev-product-img,.next-product-img').click(function() {
+  showSlides(slideIndex += jQuery(this).data('slide_count'));
+});
+
+$('.product-cursor').click(function() {
+  showSlides(slideIndex = jQuery(this).data('slide'));
+});
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("my-product-slides");
+  let dots = document.getElementsByClassName("product-image");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active_product", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active_product";
+}
+//product page js end
+</script>

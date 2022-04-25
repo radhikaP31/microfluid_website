@@ -50,7 +50,7 @@
           </div> 
         </div>
         <!-- Product category and sub category sidebar section end-->
-        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 container about-us-blocks " style="margin: unset;">
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 container" style="margin: unset;">
           <!-- Display Product Sub Category title, description start-->
           <?php 
             $category_id = $_GET['category_id'];
