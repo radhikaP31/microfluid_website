@@ -7,58 +7,64 @@ class PHP_Email_Form{
         include $_SERVER['DOCUMENT_ROOT'].'/microfluid_website/Common_query.php';
         $this->db = Database::getConnection();
         $this->constant = Common_query::constantVariables();
-
         //run constant function
     }
 
-    public function addInquiryDetails()
+    public function sendInquiryEmail()
     {
+        error_reporting(E_ALL|E_STRICT);
+        ini_set('display_errors', 1);
+
         //From single product page Quote form and Inquiry Form
         
-        
-        $company = $_POST['company'];
-        $area = $_POST['area'];
-        $country = $_POST['country'];
-        $phone = $_POST['phone'];
+        $name = $_POST['name'];
         $from_mail = $_POST['email'];
         $message = $_POST['message'];
-        $product_id = $_POST['product_id'];
 
-        $to = 'sales@microfluidprocess.com'; // this is your Email address
-        $from = $_POST['email']; // this is the sender's Email address
-        $name = $_POST['name'];
-        $subject = "Inquiry Form submission";
-        $subject2 = "Copy of your form submission";
-        $message = $name . " wrote the following:" . "\n\n" . $_POST['message'];
-        $message2 = "Here is a copy of your message " . $name . "\n\n" . $_POST['message'];
+        require_once($_SERVER['DOCUMENT_ROOT'].'/microfluid_website/phpmailer/class.phpmailer.php');
 
-        $headers = "From:" . $from;
-        $headers2 = "From:" . $to;
-        mail($to,$subject,$message,$headers);
-        mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+        $mail = new PHPMailer(); // defaults to using php "mail()"
 
-        echo json_encode("Mail Sent. Thank you " . $first_name . ", we will contact you shortly.");
+        /*$mail->IsSMTP();
+        $mail->Host = 'localhost';
+        $mail->SMTPAuth = false;
+        $mail->SMTPAutoTLS = false; 
+        $mail->Port = 465; */
+
+        $mail->IsSMTP();
+        $mail->Host       = "sg3plcpnl0193.prod.sin3.secureserver.net"; // SMTP server
+        $mail->SMTPSecure = "ssl";
+        $mail->SMTPDebug  = 2;                      // enables SMTP debug information (for testing) // 1 = errors and messages // 2 = messages only
+        $mail->SMTPAuth   = true;                   // enable SMTP authentication
+        $mail->Port       = 465;                   // set the SMTP port for the GMAIL server // 587 for TLS // 465 for SSL
+        $mail->Username   = "sales@microfluidprocess.com";  // SMTP account username
+        $mail->Password   = "password";               // SMTP account password
+
+        /*$mail->Host       = "ssl://smtp.gmail.com";       // SMTP server
+        $mail->Host       = "smtp.gmail.com";       // SMTP server
+
+        // Change $mail->Host if you are using gmail account
+        $mail->Username   = "microfluidprocessequipment@gmail.com";  // SMTP account username
+        $mail->Password   = "password";               // SMTP account password
+       
+        $mail->SetFrom('microfluidprocessequipment@gmail.com', 'Microfluid Process Equipment');
+        $mail->addAddress('sales@microfluidprocess.com');*/
+
+        $mail->Subject = $_POST['message'];
+
+        $mail->MsgHTML($_POST['message']);
+
+        if(!$mail->Send()) {
+            return 'false';
+        } else {
+            return 'true';
+        }
+
     }
 
-    public function addContactUsDetails()
-    {
-        //From contact us page form
-        /*$to = "email@example.com"; // this is your Email address
-        $from = $_POST['email']; // this is the sender's Email address
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
-        $subject = "Form submission";
-        $subject2 = "Copy of your form submission";
-        $message = $first_name . " " . $last_name . " wrote the following:" . "\n\n" . $_POST['message'];
-        $message2 = "Here is a copy of your message " . $first_name . "\n\n" . $_POST['message'];
+    public function addInquiryDetails(){
 
-        $headers = "From:" . $from;
-        $headers2 = "From:" . $to;
-        mail($to,$subject,$message,$headers);
-        mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
-        echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";*/
-        echo json_encode("Mail Sent. Thank you , we will contact you shortly.");
+        return $this->db->query('INSERT INTO `web_product_inquiry`(`product_id`, `name`, `company`, `area`, `country`, `phone`, `email`, `message`) VALUES ('.$_POST["product_id"].',"'.$_POST["name"].'","'.$_POST["company"].'","'.$_POST["area"].'","'.$_POST["country"].'","'.$_POST["phone"].'","'.$_POST["email"].'","'.$_POST["message"].'")');
     }
-    
 }
 ?>

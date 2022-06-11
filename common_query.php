@@ -62,7 +62,7 @@ Class Common_query{
 	    return $this->db->query("SELECT * FROM web_products_category where is_deleted=0 order by sequence");
 	}
 
-	/**Function to get All products sub category from web_products_sub_category table
+	/**Function to get products category data from web_products_category table
 	* @params $category_id type integer
 	* @return array  
 	**/
@@ -116,6 +116,22 @@ Class Common_query{
 	function getProductImagesByProductID($product_id=0)
 	{	
 		return $this->db->query("SELECT pi.* FROM web_products wp JOIN web_product_image pi on wp.id=pi.product_id where wp.is_deleted=0 and wp.id = ".$product_id);
+	}
+
+	/**Function to get products keys from web_product_keys table
+	* @params $product_id type integer
+	* @return array  
+	**/
+	function getProductKeysByProductID($product_id=0)
+	{	
+		$sql = '';
+		if($product_id) {
+			$sql = ' and product_id = '.$product_id;
+		} else {
+			$sql = ' and product_id IS NULL';
+		}
+
+		return $this->db->query("SELECT * FROM web_product_keys where is_deleted=0 ".$sql);
 	}
 }
 
